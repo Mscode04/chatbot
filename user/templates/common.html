@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      background: rgb(2, 0, 36);
+      background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(57, 57, 197, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    }
+    #send{
+      background-color: rgb(152, 247, 152);
+    }
+    #send:hover{
+      background-color: rgb(7, 128, 7); 
+    }
+    .ref{
+      background-color: rgb(82, 133, 242);
+    }
+    .ref:hover{
+      background-color:rgb(12, 80, 226); 
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Image and text -->
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'uhome' %}">
+      <img src="https://freesvg.org/img/1538298822.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      ChatBot
+    </a>
+    <div class="dropdown dropstart">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+        More...
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'feed' %}">Give Us FeedBack</a></li>
+        <li><a class="dropdown-item" href="{% url 'cntn' %}">Contact Us</a></li>
+        <li><a class="dropdown-item" href="{% url 'sout' %}">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  {% block nav %}
+
+  <div>
+    <h1>{{data}}</h1>
+  </div>
+  {% endblock nav %}
+
+</body>
+
+</html>

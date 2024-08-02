@@ -1,0 +1,59 @@
+{% extends 'common.html' %}
+
+{% block nav %}
+{% if messages %}
+{% for i in messages %}
+{% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>{{i}}</strong>
+</div>
+{% endif %}
+{% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>{{i}}</strong>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+<div class="d-flex justify-content-center align-items-center w-100" style="height: 90vh;">
+    <div class="w-50 shadow p-5 text-center">
+        <h1 class="text-center fw-bolder text-light">
+            Welcome to <span style="
+            font-size: 45px;
+            background: -webkit-linear-gradient(red, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;">College ChatBot</span>
+            <span style="
+                font-size: 45px;
+                background: -webkit-linear-gradient(blue, #333);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;">
+                {{request.user.first_name}} {{request.user.last_name}}</span>
+        </h1>
+        <h1 id="clock" class="text-center"></h1>
+        <a href="{% url 'cbot' %}" class="btn btn-warning">Enquire With ChatBot</a>
+    </div>
+</div>
+
+<script>
+    const getClock = () => {
+        const d = new Date()
+        let hrs = d.getHours()
+        let min = d.getMinutes()
+        let sec = d.getSeconds()
+        let clo = hrs > 12 ? `${hrs - 12}:${min}:${sec} PM` : `${hrs}:${min}:${sec} AM`
+        clock.innerHTML = clo
+
+        setTimeout(() => {
+            getClock()
+        }, 1000)
+    }
+
+    getClock()
+
+</script>
+
+
+{% endblock nav %}

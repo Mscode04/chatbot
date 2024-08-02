@@ -1,0 +1,25 @@
+{% extends 'common.html' %}
+
+{% block nav %}
+
+<h1 class="text-light">FeedBack</h1>
+<div class="w-100 d-flex flex-column justify-content-center align-items-center" style="height: 80vh;">
+    <div class="border w-50 shadow p-5">
+        <form method="post">
+            {% csrf_token %}
+            <label for="fd">
+                Enter your feedback:
+                <textarea name="feed" id="fd" cols="100" required minlength="5" rows="5" class="form-control my-3"></textarea>
+            </label>
+            <button class="btn mt-3 ref" >Submit</button>
+        </form>
+        <div class="border border-light shadow p-2 mt-5">
+            {% for i in data %}
+            <p class=" shadow m-3 d-flex justify-content-between"><span>{{i.feedback}}</span><span>-{{i.user.first_name}}</span></p>
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+
+{% endblock nav %}
